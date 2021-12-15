@@ -1,0 +1,19 @@
+<h2>News</h2>
+<ul>
+    {% for post in site.posts %}
+    <li>
+        <div>
+        {% if post.type == 'important' %}
+          <span>重要なお知らせ</span>
+        {% elsif post.type == 'news' %}
+          <span>ニュース</span>
+        {% else %}
+          <span>その他</span>
+        {% endif %}
+        <span>{{ post.date | date: "%Y.%-m.%-d" }}</span>
+        <span>{{ post.title }}</span>
+        </div>
+        <p>{{ post.excerpt }}</p>
+    </li>
+    {% endfor %}
+</ul>
